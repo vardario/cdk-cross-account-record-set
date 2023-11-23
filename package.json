@@ -1,0 +1,62 @@
+{
+  "name": "@vardario/cdk-cross-account-record-set",
+  "version": "0.0.0-development",
+  "description": "CDK construct to create a Route53 RecordSet in a different account through an IAM role",
+  "license": "MIT",
+  "author": "Sahin Vardar",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:vardario/cdk-cross-account-record-set.git"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "tsc --build",
+    "format": "prettier --plugin-search-dir . --write . && prettier-package-json --write && eslint --fix .",
+    "prepare": "husky install",
+    "repo-clean": "git clean -xdf -e .env",
+    "semantic-release": "semantic-release",
+    "test": "vitest run --passWithNoTests",
+    "watch": "tsc --build --watch"
+  },
+  "peerDependencies": {
+    "@aws-sdk/client-route-53": "3.x",
+    "aws-cdk-lib": "2.x",
+    "constructs": "10.x"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-route-53": "^3.454.0",
+    "@aws-sdk/client-sts": "^3.454.0",
+    "@types/aws-lambda": "^8.10.129",
+    "@types/node": "^20.9.4",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "aws-cdk-lib": "^2.110.1",
+    "constructs": "^10.3.0",
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-typescript-sort-keys": "^3.1.0",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.1.0",
+    "prettier-package-json": "^2.8.0",
+    "semantic-release": "^22.0.8",
+    "typescript": "^5.3.2",
+    "vitest": "^0.34.6"
+  },
+  "keywords": [],
+  "publishConfig": {
+    "access": "public"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown",
+      "eslint --fix"
+    ],
+    "package.json": "prettier-package-json --write"
+  },
+  "packageManager": "pnpm@8.10.5"
+}
