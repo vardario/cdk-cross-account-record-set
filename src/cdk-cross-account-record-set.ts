@@ -21,13 +21,14 @@ export class CdkCrossAccountRecordSet extends Construct {
     createCustomResource({
       properties: {
         records: JSON.stringify(props.records),
-        iamRoleArn: props.iamRoleArn
+        iamRoleArn: props.iamRoleArn,
+        hostedZoneId: props.hostedZoneId
       },
       lambdaProps: {
         description: 'Creates a Route53 Record Set with an IAM Role in another account.',
         timeout: cdk.Duration.seconds(30)
       },
-      handlerPath: path.resolve(__dirname, './handler.ts'),
+      handlerPath: path.resolve(__dirname, './handler.js'),
       name: 'CrossAccountRecordSet',
       scope: this,
       policyStatements: [
